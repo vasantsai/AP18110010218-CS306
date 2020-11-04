@@ -1,0 +1,28 @@
+void: keyword
+main: keyword
+(: 
+): 
+{: 
+int: keyword
+m: identifier
+;: 
+m: identifier
+>=: Relational operator GE
+10.5: fractional float
+!=: Relational operator NE
+-5.1: fractional float
+y: identifier
+=: Assignment operator
+.8: fractional float
+-5: digit
+c: identifier
++10: digit
+_end: identifier
+}: 
+
+Symbol table:
+
+1. m
+2. y
+3. c
+4. _end
