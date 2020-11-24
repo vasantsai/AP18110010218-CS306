@@ -1,0 +1,44 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+int get_profit(vector<int> &rods, int sz, int cpc, int sl) {
+    int profit = 0;
+    for(int r : rods) {
+        int rodProf = 0;
+        if(r%sz == 0) {
+            rodProf += ((r/sz) * sz * sl) - (r/sz - 1) * cpc;
+        } else {
+            rodProf += ((r/sz) * sz * sl) - (r/sz) * cpc;
+        }
+        if(rodProf > 0)
+            profit += rodProf;
+    }
+    if(profit == 1913) {
+        cout << sz << endl;
+    }
+
+    return profit;
+}
+
+int main() {
+    int n;
+
+        int cpc , sl;
+    cin >> cpc >> sl;
+    cin >> n;
+    vector<int> v(n);
+    int maxlen = 0;
+    for(int i=0; i<n; i++) {
+        cin >> v[i];
+        maxlen = max(maxlen, v[i]);
+    }
+
+    int ret = 0;
+    for(int sz=1; sz<=maxlen; sz++) {
+        int prof = get_profit(v, sz, cpc, sl);
+        ret = max(prof, ret);
+    }
+    cout <<ret << endl;
+    return 0;
+}
